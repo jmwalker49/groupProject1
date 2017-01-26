@@ -5,12 +5,18 @@
 
   <meta charset="UTF-8">
   <title>Weather API</title>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+  </style>
   </head>
 
 <body>
 
   <div class="container">
-    <div class=row>Weather Info here:</div>
+    <div class=row>Weather Info here:
       <div class="col-md-4" id="weatherDiv">
         <form>
           <label for="location">Enter Location</label>
@@ -20,31 +26,85 @@
         <br>
         <div id="weatherDispl"></div>
 
+      </div>
+
+    </div>
+    <div class="row" id = "map">
+    
+
     </div>
 
 
   </div>
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+
+<script type="text/javascript">
 
 $(document).ready(function() {
 
     var recentSearch=["NC/Charlotte"];
     var numSearches= recentSearch.length;
     console.log(numSearches);
+    var lat = "";
+    var lng = "";
 
-    function callWeather(){
 
-        var numSearches= recentSearch.length;
-        console.log(numSearches);
-        var currentDestination = recentSearch[numSearches-1];
-        console.log(currentDestination);
+    function codeAddress(destination) {
+        geocoder = new google.maps.Geocoder();
+        // var place = $("#text").val();
+
+        geocoder.geocode( { 'address': destination}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                var lat = results[0].geometry.location.lat();
+                var lng = results[0].geometry.location.lng();
+
+                initMap(lat,lng);
+                callWeather(lat,lng);
+
+                // alert("Latitude: "+results[0].geometry.location.lat());
+                // alert("Longitude: "+results[0].geometry.location.lng());
+                console.log("lat: "+lat+" lng: "+ lng);
+            console.log(results);
+            } 
+
+            else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });//geocode request call
+    }//codeAddress function
+
+    function initMap(latitude, longitude) {
+        var uluru = {lat: latitude, lng: longitude};
+        console.log("initMap-uluru: "+ uluru);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }//initMap function
+
+
+
+    function callWeather(lat,lng){
+
+        // var numSearches= recentSearch.length;
+        // console.log(numSearches);
+        // var currentDestination = recentSearch[numSearches-1];
+        // console.log(currentDestination);
+        var currentDestination = lat+","+lng;
+        console.log("callweather lat/lng: " + currentDestination);
 
       $.ajax({
         url : "http://api.wunderground.com/api/45bc54e120183165/forecast/geolookup/conditions/almanac/astronomy/q/"+currentDestination +".json",
@@ -98,6 +158,8 @@ $(document).ready(function() {
         // Since this has type=submit,we have this line so that users can hit "enter" instead of clicking on the button and it won't move to the next page
         event.preventDefault();
 
+
+
         // This line of code will grab the input from the textbox
         var destination= $("#location-input").val().trim();
         console.log(destination);
@@ -108,7 +170,7 @@ $(document).ready(function() {
         console.log(recentSearch);
         
         // Our fxn then runs which handles the processing of the recentSearch array
-        callWeather();
+        codeAddress(destination);
 
         // not sure this is doing anything here
         return false;
