@@ -8,7 +8,8 @@
     <title>trek</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    <!-- Bootstrap core CSS     -->
+
+    <!-- Bootstrap core CSS * Fulfill Bootstrap Requirement -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
@@ -30,12 +31,6 @@
                     </a>
                 </div>
                 <ul class="nav">
-                    <!--<li class="active">
-                    <a href="index.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>-->
                     <li class="button transition fill-dark-blue">
                         <a href="explore.html">
                             <i class="pe-7s-helm"></i>
@@ -136,6 +131,21 @@
                         </div>
                     </div>
                 </div>
+             <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="width:375px; height:450px;">
+                                <div class="header">
+                                    <h4 class="title">Explore</h4>
+                                    <p class="category">Find Your Place</p>
+                                </div>
+                                <div class="content">
+                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                                    Enter buttons for recent searches here
+                                </div>
+                            </div>
+                        </div>
+
+
             </div>
         </div>
         <footer class="footer">
@@ -144,7 +154,8 @@
                     &copy;
                     <script>
                     document.write(new Date().getFullYear())
-                    </script>MW Group 7
+                    </script> MW Group 7
+
                 </p>
             </div>
         </footer>
@@ -168,6 +179,10 @@
 <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 
