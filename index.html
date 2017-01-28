@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>trek</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS * Fulfill Bootstrap Requirement -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!-- Linking Butn Library * Fulfill Library Requirement -->
+    <link href="assets/css/butns.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="index.html" style="text-align:center; color:navy;">
+                        <h3>trek</h3>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="button transition fill-dark-blue">
+                        <a href="explore.html">
+                            <i class="pe-7s-helm"></i>
+                            <p>Explore</p>
+                        </a>
+                    </li>
+                    <li class="button transition fill-dark-blue">
+                        <a href="table.html">
+                            <i class="pe-7s-sun"></i>
+                            <p>Weather</p>
+                        </a>
+                    </li>
+                    <li class="button transition fill-dark-blue">
+                        <a href="trending.html">
+                            <i class="pe-7s-photo"></i>
+                            <p>Trending</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Dashboard</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="button transition fill-dark-blue">
+                                <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="pe-7s-map-marker"></i>
+                                    <p class="hidden-lg hidden-md">Dashboard</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="width:375px; height:450px;">
+                                <div class="header">
+                                    <h4 class="title">Explore</h4>
+                                    <p class="category">Find Your Place</p>
+                                </div>
+                                <div class="content">
+                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                                    <div class="container">
+                                        <form>
+                                                <label for="location"></label>
+                                                <input id="location-input" name= "destination" type="text" minlength="4" placeholder="Enter Destination" required >
+                                                <button class="button transition fill-dark-blue small" id="submit-location" type="submit" style=margin-bottom:2px">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card" id="weatherDiv" style="width:375px; height:450px;">
+                                    <div class="header">
+                                        <h4 class="title">Weather</h4>
+                                        <p class="category">Do you need that raincoat?</p>
+                                    </div>
+                                    <div class="content">
+                                        <div id="chartHours" class="ct-chart">
+                                                <div id="weatherDispl"></div>
+                                            </div>
+                                      </div>
+                                        <div class="row" id="map">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="width:375px; height:450px;">
+                            <div class="header">
+                                <h4 class="title">Trending</h4>
+                                <p class="category">Things Near Me</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="width:375px; height:450px;">
+                                <div class="header">
+                                    <h4 class="title">Explore</h4>
+                                    <p class="category">Find Your Place</p>
+                                </div>
+                                <div class="content">
+                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                                    Enter buttons for recent searches here
+                                </div>
+                            </div>
+                        </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> MW Group 7
+                </p>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var recentSearch = ["NC/Charlotte"];
+    var numSearches = recentSearch.length;
+    console.log(numSearches);
+    var lat = "";
+    var lng = "";
+
+
+    function codeAddress(destination) {
+        geocoder = new google.maps.Geocoder();
+        // var place = $("#text").val();
+
+        geocoder.geocode({
+            'address': destination
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                var lat = results[0].geometry.location.lat();
+                var lng = results[0].geometry.location.lng();
+
+                initMap(lat, lng);
+                callWeather(lat, lng);
+
+                // alert("Latitude: "+results[0].geometry.location.lat());
+                // alert("Longitude: "+results[0].geometry.location.lng());
+                console.log("lat: " + lat + " lng: " + lng);
+                console.log(results);
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        }); //geocode request call
+    } //codeAddress function
+
+    function initMap(latitude, longitude) {
+        var uluru = {
+            lat: latitude,
+            lng: longitude
+        };
+        console.log("initMap-uluru: " + uluru);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    } //initMap function
+
+
+
+    function callWeather(lat, lng) {
+
+        // var numSearches= recentSearch.length;
+        // console.log(numSearches);
+        // var currentDestination = recentSearch[numSearches-1];
+        // console.log(currentDestination);
+        var currentDestination = lat + "," + lng;
+        console.log("callweather lat/lng: " + currentDestination);
+
+        $.ajax({
+            url: "http://api.wunderground.com/api/45bc54e120183165/forecast/geolookup/conditions/almanac/astronomy/q/" + currentDestination + ".json",
+            dataType: "jsonp",
+
+            success: function(parsed_json) {
+                var location = $('<p>').text(parsed_json['location']['city']);
+                var locationFull = $('<p>').text(parsed_json['current_observation']['display_location']["full"]);
+                var temp_f = $('<p>').text(parsed_json['current_observation']['temp_f']);
+                var temperature_string = $('<p>').text(parsed_json['current_observation']['temperature_string']);
+                var weather = $('<p>').text(parsed_json['current_observation']['weather']);
+                var rel_humid = $('<p>').text(parsed_json['current_observation']['relative_humidity']);
+
+                var icon_current = $('<img>').attr('src', parsed_json['current_observation']['icon_url']);
+                var icon_current2 = $('<img>').attr('src', parsed_json.current_observation.icon_url);
+
+                var forecast_url = $("<a>").attr('href', parsed_json['current_observation']['forecast_url']);
+                forecast_url.attr("title", "wunderground.com");
+                forecast_url.attr("target", "_blank")
+                forecast_url.text("Click here for full forecast");
+                forecast_url.addClass("link");
+
+                var futureForecast_icon1 = $('<img>').attr('src', parsed_json.forecast.simpleforecast.forecastday[1].icon_url);
+
+
+
+                console.log(parsed_json);
+                console.log("Current temperature in " + location + " is: " + temp_f);
+
+                //Just displaying our options...there's more
+                //$("#weatherDispl").append(location);
+                $("#weatherDispl").append(locationFull);
+                //$("#weatherDispl").append(temp_f);
+                $("#weatherDispl").append(temperature_string);
+                $("#weatherDispl").append(weather);
+                //$("#weatherDispl").append(rel_humid);
+                $("#weatherDispl").append(icon_current);
+                //$("#weatherDispl").append(icon_current2);
+                $("#weatherDispl").append(forecast_url);
+                //$("#weatherDispl").append(futureForecast_icon1);
+
+            }
+
+        });
+    }
+
+
+
+    // This function handles addition of new destinations
+    $('#submit-location').on('click', function() {
+        // Since this has type=submit,we have this line so that users can hit "enter" instead of clicking on the button and it won't move to the next page
+        event.preventDefault();
+
+
+
+        // This line of code will grab the input from the textbox
+        var destination = $("#location-input").val().trim();
+        console.log(destination);
+        $('#location-input').val(" ");
+
+        // The destination from the input form is then added to our array
+        recentSearch.push(destination);
+        console.log(recentSearch);
+
+        // Our fxn then runs which handles the processing of the recentSearch array
+        codeAddress(destination);
+
+        // not sure this is doing anything here
+        return false;
+    })
+
+});
+</script>
+
+</html>
