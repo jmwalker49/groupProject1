@@ -19,6 +19,13 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <!-- Linking Butn Library * Fulfill Library Requirement -->
     <link href="assets/css/butns.min.css" rel="stylesheet">
+<style>
+#map {
+    height:375px;
+    width:330px;
+}
+</style>
+
 </head>
 
 <body>
@@ -93,6 +100,8 @@
                                                 <input id="location-input" name= "destination" type="text" minlength="4" placeholder="Enter Destination" required >
                                                 <button class="button transition fill-dark-blue small" id="submit-location" type="submit" style=margin-bottom:2px">Submit</button>
                                         </form>
+                                        <div id="map">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,9 +114,7 @@
                                         <p class="category">Do you need that raincoat?</p>
                                     </div>
                                     <div class="content">
-                                        <div id="chartHours" class="ct-chart">
                                                 <div id="weatherDispl"></div>
-                                            </div>
                                       </div>
                                         <div class="row" id="map">
                                         </div>
@@ -125,8 +132,7 @@
                                 <p class="category">Things Near Me</p>
                             </div>
                             <div class="content">
-                                <div id="chartActivity" class="ct-chart">
-                                </div>
+                             <div id="picturesView"></div>
                             </div>
                         </div>
                     </div>
@@ -138,10 +144,7 @@
                                     <h4 class="title">Recent Searches</h4>
                                     <p class="category">Want to go back?</p>
                                 </div>
-                                <div class="content" id="recentSearch">
-                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
-                                    Enter buttons for recent searches here
-                                </div>
+                                <div class="content" id="recent-searches">
                             </div>
                         </div>
 
@@ -175,7 +178,6 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -184,6 +186,5 @@
 <script src="js/flickr.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
-
 
 </html>
