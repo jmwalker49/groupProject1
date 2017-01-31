@@ -156,8 +156,8 @@ $(document).ready(function() {
                 var placeImg =$("<img>");
                 placeImg.attr('src', url);
                 placeImg.addClass('placeImages')
-                $('#google').prepend(placeImg);
-
+                $('#google').append(placeImg);
+      
                 console.log(url);
             }
         });
