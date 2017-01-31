@@ -35,7 +35,7 @@
             console.log(response.photos.photo[0].id)
             console.log(response.photos.photo[0].secret);
 
-         for(var i = 0; i < 10; i++) {
+         for(var i = 0; i < 3; i++) {
             var farm = response.photos.photo[i].farm;
             var server = response.photos.photo[i].server;
             var secret = response.photos.photo[i].secret;
@@ -44,7 +44,7 @@
             var photoSrc = "http://farm" + farm + ".staticflickr.com/" + server + "/" + id + "_" + secret +".jpg";
             // console.log(photoSrc);
 
-            var photo = $('<img>').attr('src', photoSrc);
+            var photo = $('<img class="flickrImage">').attr('src', photoSrc);
             photo.addClass('pictures');
 
             $("#picturesView").append(photo)

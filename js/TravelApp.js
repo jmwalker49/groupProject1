@@ -53,7 +53,7 @@ $(document).ready(function() {
         var uluru = {lat: latitude, lng: longitude};
         console.log("initMap-uluru: "+ uluru);
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 8,
           center: uluru
         });
         var marker = new google.maps.Marker({
@@ -81,11 +81,11 @@ $(document).ready(function() {
         var location = $('<p>').text(dispLoc);
         var locationFull = $('<p>').text(parsed_json['current_observation']['display_location']["full"]);
         var temp_f = $('<p>').text(parsed_json['current_observation']['temp_f']);
-        var temperature_string = $('<p>').text(parsed_json['current_observation']['temperature_string']);
-        var weather = $('<p>').text(parsed_json['current_observation']['weather']);
-        var rel_humid = $('<p>').text(parsed_json['current_observation']['relative_humidity']);
+        var temperature_string = $('<p>').text("Current Temp: "+parsed_json['current_observation']['temperature_string']);
+        var weather = $('<p>').text("Current Observation: "+parsed_json['current_observation']['weather']);
+        var rel_humid = $('<p>').text("Humidity: " + parsed_json['current_observation']['relative_humidity']);
         
-        var icon_current = $('<img>').attr('src', parsed_json['current_observation']['icon_url']);
+        var icon_current = $('<img alt = current obs icon>').attr('src', parsed_json['current_observation']['icon_url']);
         var icon_current2 = $('<img>').attr('src', parsed_json.current_observation.icon_url);
         
         var forecast_url = $("<a>").attr('href', parsed_json['current_observation']['forecast_url']);
@@ -94,7 +94,21 @@ $(document).ready(function() {
         forecast_url.text("Click here for full forecast");
         forecast_url.addClass("link");
 
-        var futureForecast_icon1 = $('<img>').attr('src', parsed_json.forecast.simpleforecast.forecastday[1].icon_url); 
+        var futureForecast_icon1 = $('<img class = forecastIcons alt = futureIcon1>').attr('src', parsed_json.forecast.txt_forecast.forecastday[2].icon_url);
+        var futureForecast_icon2 = $('<img class = forecastIcons alt = futureIcon2>').attr('src', parsed_json.forecast.txt_forecast.forecastday[4].icon_url);
+        var futureForecast_icon3 = $('<img class = forecastIcons alt = futureIcon3>').attr('src', parsed_json.forecast.txt_forecast.forecastday[6].icon_url);
+
+        var futureForecastDiv = $('<div>');
+        futureForecastDiv.append(futureForecast_icon1);
+        futureForecastDiv.append(futureForecast_icon2);
+        futureForecastDiv.append(futureForecast_icon3);
+        futureForecastDiv.append('<br>');
+        futureForecastDiv.append(forecast_url);
+
+        var apiLogo = $('<img>').attr('src', 'https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg');
+        apiLogo.addClass("logo");
+
+
 
 
 
@@ -102,21 +116,27 @@ $(document).ready(function() {
         console.log("Current temperature in " + location + " is: " + temp_f);
 
         //Just displaying our options...there's more
-        $("#weatherDispl").html(location);
-        $("#weatherDispl").append(locationFull);
-        $("#weatherDispl").append(temp_f);
+        $("#weatherDispl").append(location);
+        // $("#weatherDispl").append(locationFull);
+        // $("#weatherDispl").append(temp_f);
         $("#weatherDispl").append(temperature_string);
-        $("#weatherDispl").append(weather);
-        $("#weatherDispl").append(rel_humid);
+        $("#weatherDispl").append(weather);        
         $("#weatherDispl").append(icon_current);
-        $("#weatherDispl").append(icon_current2);
-        $("#weatherDispl").append(forecast_url);
-        $("#weatherDispl").append(futureForecast_icon1);
+        $("#weatherDispl").append(rel_humid);
+        // $("#weatherDispl").append(icon_current2);
+        // $("#weatherDispl").append(forecast_url);
+        // $("#weatherDispl").append(futureForecast_icon1);
+        $("#weatherDispl").append(futureForecastDiv);
+
+        $("#weatherDispl").append('<br>');
+        $("#weatherDispl").append(apiLogo);
+
 
       }
 
       });
     }
+
 
 
 
@@ -156,6 +176,7 @@ $(document).ready(function() {
         var button = $("<button>");
         button.text(value);
         button.attr('id', 'recent');
+        button.addClass("button transition fill-dark-blue small");
 
         $("#recent-searches").append(button);
     });

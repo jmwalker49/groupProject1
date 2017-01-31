@@ -21,8 +21,29 @@
     <link href="assets/css/butns.min.css" rel="stylesheet">
 <style>
 #map {
-    height:375px;
+    height:300px;
     width:330px;
+    margin-left:8px;
+}
+.logo {
+    height:90px;
+    width:350px;
+}
+.forecastIcons {
+    display:inline-block;
+    margin-left:31px;
+    margin-right:31px;
+}
+.link {
+    margin-left:90px;
+    margin-right:90px;
+    color:#337ab7;
+}
+#weatherDispl {
+    color:#337ab7;
+}
+#recent-searches {
+
 }
 </style>
 
@@ -93,8 +114,8 @@
                                     <p class="category">Find Your Place</p>
                                 </div>
                                 <div class="content">
-                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
-                                    <div class="container">
+                                    <!--<div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                                    <div class="container">-->
                                         <form>
                                                 <label for="location"></label>
                                                 <input id="location-input" name= "destination" type="text" minlength="4" placeholder="Enter Destination" required >
@@ -116,7 +137,6 @@
                                     <div class="content">
                                                 <div id="weatherDispl"></div>
                                       </div>
-                                        <div class="row" id="map">
                                         </div>
                                     </div>
                                 </div>
