@@ -139,7 +139,7 @@ $(document).ready(function() {
     //new function
     function placePhotos(lat, lng){
         // var photoRef;
-        var queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=5000&types=point_of_interest,natural_feature&key=AIzaSyC1739TWt4novsfJBUUqLtpl_kdwMqs7TA";
+        var queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=5000&types=point_of_interest,natural_feature&key=AIzaSyCq4uYyLv9Msbfrc-tgFhnIKQiZssVr1Dc";
 
         $.ajax({
             url: queryURL,
@@ -152,7 +152,7 @@ $(document).ready(function() {
                 var photoRef = response.results[i].photos[0].photo_reference;
                 console.log(photoRef);
         
-                var url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+ photoRef +'&key=AIzaSyC1739TWt4novsfJBUUqLtpl_kdwMqs7TA';
+                var url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+ photoRef +'&key=AIzaSyCq4uYyLv9Msbfrc-tgFhnIKQiZssVr1Dc';
                 var placeImg =$("<img>");
                 placeImg.attr('src', url);
                 placeImg.addClass('placeImages mySlides w3-animate-right');
