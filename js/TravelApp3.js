@@ -169,7 +169,6 @@ $(document).ready(function() {
     var slideIndex = 0;
 
     function carousel() {
-        clearTimeout(carousel);
         var i;
         var x = document.getElementsByClassName("mySlides");
         for (i = 0; i < x.length; i++) {
