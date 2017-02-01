@@ -74,7 +74,7 @@ $(document).ready(function() {
         console.log("callweather lat/lng: " + currentDestination);
 
       $.ajax({
-        url : "http://api.wunderground.com/api/45bc54e120183165/forecast/geolookup/conditions/almanac/astronomy/q/"+currentDestination +".json",
+        url : "https://api.wunderground.com/api/45bc54e120183165/forecast/geolookup/conditions/almanac/astronomy/q/"+currentDestination +".json",
         dataType : "jsonp",
 
       success : function(parsed_json) {
