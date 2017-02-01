@@ -139,7 +139,7 @@ $(document).ready(function() {
     //new function
     function placePhotos(lat, lng){
         // var photoRef;
-        var queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=500&types=point_of_interest,natural_feature&key=AIzaSyC1739TWt4novsfJBUUqLtpl_kdwMqs7TA";
+        var queryURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=5000&types=point_of_interest,natural_feature&key=AIzaSyC1739TWt4novsfJBUUqLtpl_kdwMqs7TA";
 
         $.ajax({
             url: queryURL,
@@ -156,7 +156,7 @@ $(document).ready(function() {
                 var placeImg =$("<img>");
                 placeImg.attr('src', url);
                 placeImg.addClass('placeImages mySlides w3-animate-right');
-                $('#google').append(placeImg);
+                $('#google').prepend(placeImg);
       
                 // console.log(url);
             }
@@ -200,7 +200,7 @@ $(document).ready(function() {
         // The destination from the input form is then added to our array
         recentSearch.push(destination);
         console.log(recentSearch);
-        $("#picturesView").empty();
+        $("#google").empty();
         $("#weatherDispl").empty();
         
         // Our fxn then runs which handles the processing of the recentSearch array
@@ -223,8 +223,10 @@ $(document).ready(function() {
     });
 
     // on recent searches button click
-    $(document).on('click', '#recent', function(){
+    $(document).on('click', '#recent', function(){        
         var destination = $(this).text();
+        $("#google").empty();
+        $("#weatherDispl").empty();
         codeAddress(destination);
     });
 
